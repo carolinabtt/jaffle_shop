@@ -16,8 +16,34 @@ clean-targets:
     - "dbt_modules"
     - "logs"
 
+dbt-cloud:
+    project-id: 169114
+    
 models:
+#   +persist_docs:
+#     relation: true 
+#     columns: true 
+
   jaffle_shop:
       materialized: table
       staging:
-        materialized: view
+        materialized: table
+
+  dbt_artifacts:
+      +database: dbt-repository 
+      +schema: metadata
+
+vars:
+  start_date: '2018-01-01'
+  end_date: '2018-03-31'
+  status: 'completed'
+  
+dispatch:
+  - macro_namespace: dbt
+    search_order: ['jaffle_shop','dbt']
+
+#on-run-end:
+#  - "{{ dbt_artifacts.upload_results(results) }}"
+#  - "{{ create_log() }}"
+#  - "{{ create_models_excecutions() }}"
+
