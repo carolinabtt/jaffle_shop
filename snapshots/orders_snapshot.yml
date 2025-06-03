@@ -1,0 +1,10 @@
+snapshots:
+  - name: orders_snapshot
+    relation: ref('stg_orders') 
+    description:  Orders status
+    config:
+      database: dbt-repository
+      schema: jaffle_shop
+      strategy: timestamp
+      unique_key: order_id
+      updated_at: updated_at

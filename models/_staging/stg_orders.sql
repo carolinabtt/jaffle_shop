@@ -22,7 +22,8 @@ renamed as (
         order_date,
         cast(concat(substr(cast(order_date as string),1,4), substr(cast(order_date as string),6,2), 
             substr(cast(order_date as string),9,2)) as int64) as pk_anyomesdia,
-        status
+        status,
+        current_timestamp() as updated_at
 
     from source
 
