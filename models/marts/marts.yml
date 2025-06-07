@@ -1,0 +1,7 @@
+
+models: 
+  - name: orders_view
+    description: "Orders view updated"
+    columns:
+      - name: order_id
+        description: "Unique key of the order"

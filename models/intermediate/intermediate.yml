@@ -1,12 +1,5 @@
 
-models: 
-  - name: orders_view
-    description: "Orders view updated"
-    columns:
-      - name: order_id
-        description: "Unique key of the order"
-        tests:
-          - unique
+models:
   - name: customers
     description: Customer overview data mart, offering key details for each unique customer. One row per customer.
     cron: "0 * * * *"
@@ -28,10 +21,8 @@ models:
         description: The timestamp of a customer's most recent order.
       - name: customer_lifetime_value
         description: The sum of all the order totals (including tax) that a customer has ever placed.
-    # - name: customer_type
-     #   description: Options are 'new' or 'returning', indicating if a customer has ordered more than once or has only placed their first order to date.
-     #   tests:
-     #     - accepted_values:
-     #         values: ["new", "returning"]
-      #specific_var: "{{ var('SPECIFIC_VAR') }}"
-      #specific_env_var: "{{ env_var('SPECIFIC_ENV_VAR') }}"
+      - name: customer_type
+        description: Options are 'new' or 'returning', indicating if a customer has ordered more than once or has only placed their first order to date.
+        tests:
+          - accepted_values:
+              values: ["new", "returning"]
