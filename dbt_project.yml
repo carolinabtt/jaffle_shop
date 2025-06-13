@@ -20,13 +20,13 @@ dbt-cloud:
     project-id: 169114
     
 models:
-#   +persist_docs:
-#     relation: true 
-#     columns: true 
+  +persist_docs:
+    relation: true 
+    columns: true 
 
   jaffle_shop:
       materialized: table
-      staging:
+      _staging:
         materialized: table
 
   dbt_artifacts:
