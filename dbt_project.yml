@@ -7,7 +7,7 @@ config-version: 2
 model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-seed-paths: ["data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 
 target-path: "target"
@@ -19,6 +19,9 @@ clean-targets:
 dbt-cloud:
     project-id: 169114
     
+seeds:
+  +schema: raw_dataset
+  
 models:
   +persist_docs:
     relation: true 
