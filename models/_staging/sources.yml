@@ -1,7 +1,9 @@
 version: 2
 sources:
-  - name: raw_orders
+  - name: raw_dataset
     database: dbt-repository
-    schema: jaffle_shop_dev
+    schema: raw_dataset
     tables:
+      - name: raw_customers
       - name: raw_orders
+      - name: raw_payments

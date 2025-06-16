@@ -1,10 +1,13 @@
+{{ config(
+    materialized='incremental',
+    incremental_strategy='insert_overwrite',
+    partition_by = {'field' : 'order_date', 'data_type' : 'date'}
+    )
+}}
+
 with source as (
 
-    {#-
-    Normally we would select from the table here, but we are using seeds to load
-    our data in this project
-    #}
-    select * from {{ ref('raw_customers') }}
+    select * from {{ source('raw_dataset','raw_customers') }}
 
 ),
 

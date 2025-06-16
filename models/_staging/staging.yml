@@ -10,7 +10,6 @@ models:
   - name: stg_orders
     columns:
       - name: order_id
-        mode: 'required'
         data_tests:
           - unique
           - not_null
