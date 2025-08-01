@@ -1,4 +1,4 @@
-{% macro drop_tmp_tables(schemas=[], prefix='tmp_') %}
+{% macro drop_tmp_tables(schemas=[], prefix='%_tmp_') %}
 
     {%- set adapter = target.adapter -%}
     {% do log("Scanning for temporary tables to drop...", info=True) %}
