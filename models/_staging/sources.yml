@@ -3,7 +3,15 @@ sources:
   - name: raw_dataset
     database: dbt-repository
     schema: raw_dataset
+    config: 
+      freshness:
+        warn_after: {count: 20, period: hour}
+        error_after: {count: 2, period: day}
+      loaded_at_field: loaded_at
+
     tables:
       - name: raw_customers
       - name: raw_orders
       - name: raw_payments
+        config:
+          freshness: null
