@@ -2,7 +2,6 @@
 models:
   - name: customers
     description: Customer overview data mart, offering key details for each unique customer. One row per customer.
-    cron: "0 * * * *"
     columns:
       - name: customer_id
         description: The unique key of the orders mart.
