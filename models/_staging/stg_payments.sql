@@ -1,7 +1,6 @@
 {{ config(
     materialized='incremental',
-    incremental_strategy='insert_overwrite',
-    partition_by = {'field' : 'order_date', 'data_type' : 'date'}
+    unique_key='payment_id'
     )
 }}
 

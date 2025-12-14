@@ -28,9 +28,9 @@ models:
     columns: true 
 
   jaffle_shop:
-      materialized: table
+      +materialized: table
       _staging:
-        materialized: table
+        +materialized: table
 
   dbt_artifacts:
       +database: dbt-repository 
